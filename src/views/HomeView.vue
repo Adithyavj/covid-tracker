@@ -1,6 +1,6 @@
 <template>
   <main v-if="!loading">
-    show data
+    <DataTitle :text="title" :dataDate="dataDate" />
   </main>
   <main v-else class="flex flex-col align-center justify-center text-center">
     <div class="text-gray-500 text-3xl mt-10 mb-6">
@@ -11,15 +11,18 @@
 </template>
 
 <script>
+import DataTitle from '@/components/DataTitle.vue'
 
 export default {
   name: 'HomeView',
-  components: { },
+  components: {
+    DataTitle
+   },
   data() {
     return {
       loading: true,
       title: 'Global',
-      date: '',
+      dataDate: '',
       stats: {},
       countries: [],
       loadingImage: require('../assets/hourglass.gif')
@@ -35,7 +38,7 @@ export default {
   async created() {
     const data = await this.fetchCovidData();
     console.log(data);
-    this.date = data.Date;
+    this.dataDate = data.Date;
     this.stats = data.Global;
     this.countries = data.Countries;
     this.loading = false;
