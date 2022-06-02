@@ -17,3 +17,13 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Add tailwind
+```
+vue add tailwind
+```
+
+### Install Moment (Javascript library for date/time formatting)
+```
+npm i moment
+```
